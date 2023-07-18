@@ -96,7 +96,6 @@ exports. GetPostBasedOnUserFollowing = ASync(async(req , res,next)=>{
    try{
        let objFollowing;
        await m_user.findById(userId).then(res => objFollowing = res.following) 
-        console.log(objFollowing);
         const currentUserPostsFollowing = 
         await m_post.find({user: {$in : [userId , ...objFollowing ]}})
         .sort("-createdAt").populate('comments.user' , "firstname lastname profilePicture ")

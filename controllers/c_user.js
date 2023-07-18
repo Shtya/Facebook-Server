@@ -15,7 +15,6 @@ exports.Seggestion = ASync(async(req , res , next)=>{
     const users = await m_user.find()
     const data = await m_user.findById(req.params.id)
     if(!data) return next(res.status(404).json({Error : "No such user exist"}))
-    console.log(users);
     const SuggestionFrineds = users.filter(e => !data.following.includes(e?._id) && e?._id.toString() !== data?._id.toString())
     res.status(201).json({reasults : SuggestionFrineds.length , data : SuggestionFrineds})
 })

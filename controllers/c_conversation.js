@@ -3,7 +3,6 @@ const m_message = require("../model/m_message");
 const ASync            = require("express-async-handler");
 
 exports. createConver  = ASync(async(req , res)=>{
-    console.log(req.body.sender);
     const newConver = await m_conversation.create({ members : [req.body.sender , req.body.receiver]})
     try{
         res.status(200).json(newConver)

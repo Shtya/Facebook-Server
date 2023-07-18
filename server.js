@@ -5,7 +5,7 @@ const app = express()
 const cors = require("cors")
 const dotenv = require("dotenv").config({path:".env"})
 const morgan = require("morgan")
-// mongoose.connect(process.env.DB).then(res => console.log(res.connection.host)).catch(err=> console.log(err))
+
 const connectiondb = require("./utils/db")
 connectiondb()
 
